@@ -17,6 +17,14 @@ class LinkedList {
       currentRef.nextNode = newNode;
     }
   }
+
+  prepend(value) {
+    let newNode = new Node();
+    newNode.value = value;
+
+    newNode.nextNode = this.head;
+    this.head = newNode;
+  }
 }
 
 class Node {
@@ -29,4 +37,7 @@ list = new LinkedList();
 list.append("skit");
 list.append("big");
 list.append("foo");
-console.log(list.head.nextNode.nextNode);
+list.prepend("second");
+list.prepend("first");
+
+console.log(list.head.nextNode.nextNode.nextNode.nextNode);
