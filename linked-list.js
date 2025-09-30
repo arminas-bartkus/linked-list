@@ -114,6 +114,48 @@ class LinkedList {
       return null;
     }
   }
+
+  toString() {
+    let currentRef = this.head;
+    let stringOutput = "";
+    while (currentRef.nextNode) {
+      stringOutput += `( ${currentRef.value} ) -> `;
+      currentRef = currentRef.nextNode;
+    }
+    stringOutput += `( ${currentRef.value} ) -> `;
+    stringOutput += null;
+    return stringOutput;
+  }
+
+  insertAt(value, index) {
+    let valueToInput = new Node();
+    valueToInput.value = value;
+
+    let currentRef = this.head;
+
+    for (let i = 1; i < index; i++) {
+      if (currentRef.nextNode === null) {
+        return "Error";
+      } else {
+        currentRef = currentRef.nextNode;
+      }
+    }
+    let chainAfter = currentRef.nextNode;
+    valueToInput.nextNode = chainAfter;
+    currentRef.nextNode = valueToInput;
+  }
+
+  removeAt(index) {
+    let currentRef = this.head;
+    for (let i = 1; i < index; i++) {
+      if (currentRef.nextNode === null) {
+        return "Error";
+      } else {
+        currentRef = currentRef.nextNode;
+      }
+    }
+    currentRef.nextNode = currentRef.nextNode.nextNode;
+  }
 }
 
 class Node {
@@ -129,5 +171,10 @@ list.append("foo");
 list.prepend("second");
 list.prepend("first");
 list.pop();
-console.log(list.contains("foo"));
-console.log(list.find("big"));
+// console.log(list.contains("foo"));
+// console.log(list.find("big"));
+// console.log(list.toString());
+list.insertAt("insertion", 2);
+list.removeAt(2);
+
+console.log(list.toString());
