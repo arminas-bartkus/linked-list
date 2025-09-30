@@ -81,6 +81,39 @@ class LinkedList {
       }
     }
   }
+
+  contains(value) {
+    let currentRef = this.head;
+    while (currentRef.nextNode) {
+      if (currentRef.value === value) {
+        currentRef = currentRef.nextNode;
+        return true;
+      } else {
+        currentRef = currentRef.nextNode;
+      }
+    }
+    if (currentRef.value === value) return true;
+    else return false;
+  }
+
+  find(value) {
+    let foundIndex = 0;
+    let currentRef = this.head;
+
+    while (currentRef.nextNode) {
+      if (currentRef.value === value) {
+        return foundIndex;
+      } else {
+        currentRef = currentRef.nextNode;
+        foundIndex += 1;
+      }
+    }
+    if (currentRef.value === value) {
+      return foundIndex;
+    } else {
+      return null;
+    }
+  }
 }
 
 class Node {
@@ -95,4 +128,6 @@ list.append("big");
 list.append("foo");
 list.prepend("second");
 list.prepend("first");
-console.log(list.pop());
+list.pop();
+console.log(list.contains("foo"));
+console.log(list.find("big"));
