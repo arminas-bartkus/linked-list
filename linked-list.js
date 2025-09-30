@@ -68,6 +68,19 @@ class LinkedList {
     }
     return currentRef;
   }
+
+  pop() {
+    let currentRef = this.head;
+
+    while (currentRef.nextNode) {
+      if (currentRef.nextNode.nextNode === null) {
+        currentRef.nextNode = null;
+        return this;
+      } else {
+        currentRef = currentRef.nextNode;
+      }
+    }
+  }
 }
 
 class Node {
@@ -82,4 +95,4 @@ list.append("big");
 list.append("foo");
 list.prepend("second");
 list.prepend("first");
-console.log(list.at(4));
+console.log(list.pop());
