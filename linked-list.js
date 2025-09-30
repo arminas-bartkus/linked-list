@@ -1,4 +1,4 @@
-class LinkedList {
+export default class LinkedList {
   constructor(head) {
     this.head = head;
   }
@@ -163,18 +163,18 @@ class Node {
   nextNode = null;
 }
 
-list = new LinkedList();
+// list = new LinkedList();
 
-list.append("skit");
-list.append("big");
-list.append("foo");
-list.prepend("second");
-list.prepend("first");
-list.pop();
-// console.log(list.contains("foo"));
-// console.log(list.find("big"));
+// list.append("skit");
+// list.append("big");
+// list.append("foo");
+// list.prepend("second");
+// list.prepend("first");
+// list.pop();
+// // console.log(list.contains("foo"));
+// // console.log(list.find("big"));
+// // console.log(list.toString());
+// list.insertAt("insertion", 2);
+// list.removeAt(2);
+
 // console.log(list.toString());
-list.insertAt("insertion", 2);
-list.removeAt(2);
-
-console.log(list.toString());
